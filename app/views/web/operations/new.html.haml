@@ -1,0 +1,9 @@
+%h1
+  New operation
+
+= simple_form_for operation do |f|
+  = f.input :source_id, collection: all_sources_for_user_collection(current_user), include_blank: false
+  = f.input :description
+  = f.input :operation_type, collection: Operation.operation_type.options, include_blank: false
+  = f.input :amount
+  = f.button :submit

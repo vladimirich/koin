@@ -1,0 +1,10 @@
+%h1
+  Sources
+
+= link_to "New source", new_source_path
+
+- if family
+  - family.users.each do |user|
+    = render partial: 'user_sources', locals: { user: user }
+- else
+  = render partial: 'user_sources', locals: { user: current_user.decorate }

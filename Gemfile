@@ -29,6 +29,9 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 gem 'devise'
 gem 'draper', '~> 3.0.0.pre1'
+gem 'virtus'
+gem 'simple_form'
+gem 'enumerize'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

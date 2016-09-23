@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160917211515) do
+ActiveRecord::Schema.define(version: 20160923160507) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,6 +18,18 @@ ActiveRecord::Schema.define(version: 20160917211515) do
   create_table "families", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "operations", force: :cascade do |t|
+    t.text     "description"
+    t.string   "operation_type"
+    t.bigint   "amount"
+    t.integer  "user_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "source_id"
+    t.index ["source_id"], name: "index_operations_on_source_id", using: :btree
+    t.index ["user_id"], name: "index_operations_on_user_id", using: :btree
   end
 
   create_table "sources", force: :cascade do |t|
@@ -49,4 +61,5 @@ ActiveRecord::Schema.define(version: 20160917211515) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "operations", "users"
 end

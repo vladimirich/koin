@@ -1,0 +1,6 @@
+%div
+  = user.name || user.email
+  %div
+  - user.sources.each do |source|
+    %div
+      = "#{source.name}: #{source.human_balance}"

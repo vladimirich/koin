@@ -1,13 +1,2 @@
-%h1
-  Operations
-
-%h1
-  Sources
-
-- family.users.each do |user|
-  %div
-    = user.name
-    %div
-      - user.sources.each do |source|
-        = "#{source.name}: #{source.human_balance}"
-
+= render 'operations'
+= render 'sources'

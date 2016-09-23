@@ -1,0 +1,8 @@
+%h1
+  Operations
+
+= link_to "New operation", new_operation_path
+
+- operations.each do |operation|
+  %div
+    = "#{operation.description}: #{operation.operation_type_sign}#{operation.human_amount}"
